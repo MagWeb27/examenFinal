@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Carrera\CarreraController;
 use App\Http\Controllers\Estudiantes\EstudianteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/estudiantes', EstudianteController::class);
+    Route::resource('/carreras', CarreraController::class);
 });
 
 require __DIR__.'/auth.php';
