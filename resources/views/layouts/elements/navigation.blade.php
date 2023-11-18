@@ -1,4 +1,4 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
+<nav class="bg-white border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('public.index') }}" class="flex items-center">
             <img src="{{ asset('img/marketplace/logo_marketplace.png') }}" class="w-[45px] h-[45px]"
@@ -17,7 +17,7 @@
         </button>
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul
-                class="font-medium flex flex-col md:items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                class="font-medium flex flex-col md:items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 dark:border-gray-700">
                 <li>
                     <a href="{{ route('public.index') }}"
                         class="{{ request()->routeIs('public.index') ? 'nav-select' : 'nav-unselect' }}"
@@ -25,18 +25,25 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0   ">Categorias</a>
+                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0   ">Estudiantes</a>
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0   ">Productos</a>
+                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0   ">Carreras</a>
                 </li>
                 <li>
+                    @auth
+                        <div class="hidden md:block">
+                            @include('layouts.navigation')
+                        </div>
 
-                    <a href="{{ route('login') }}"
-                        class="block py-2 pl-3 pr-4 text-gray-900 md:px-3 md:py-2 md:font-bold md:text-center md:text-white md:bg-blue-400 md:hover:bg-blue-500 md:rounded-lg">Iniciar
-                        Sesion</a>
-
+                        <a href="{{ route('estudiantes.index') }}"
+                            class="block md:hidden py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}"
+                            class="block py-2 pl-3 pr-4 text-gray-900 md:px-3 md:py-2 md:font-bold md:text-center md:text-white md:bg-blue-400 md:hover:bg-blue-500 md:rounded-lg">Iniciar
+                            Sesion</a>
+                    @endauth
                 </li>
             </ul>
         </div>

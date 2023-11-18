@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('email');
-            $table->integer('telefono');
+            $table->string('nombre')->nullable();
+            $table->string('apellido')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('telefono')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('numeroIdentificacion')->nullable();
             $table->unsignedBigInteger('carrera_id');
             
             $table->foreign('carrera_id')->references('id')->on('carreras');
