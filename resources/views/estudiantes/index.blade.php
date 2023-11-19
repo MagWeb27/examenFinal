@@ -38,7 +38,7 @@
 
             <tbody>
                 @foreach ($estudiantes as $estudiante)
-                    <tr>
+                    <tr class="bg-white">
                         <td class="text-center">{{ $estudiante->id }}</td>
                         <td class="text-start">{{ $estudiante->nombre }}</td>
                         <td class="text-center">{{ $estudiante->apellido }}</td>

@@ -21,7 +21,7 @@
 
     <div class="pt-6 flex justify-center">
 
-        <table class="w-[90%]">
+        <table class="w-[90%] rounded shadow-lg">
             <thead class="bg-gray-300 rounded">
                 <tr>
                     <th class="py-2 px-4 border-b">Codigo</th>
@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 @foreach ($carreras as $carrera)
-                    <tr>
+                    <tr class="bg-white">
                         <td class="text-center"> {{ $carrera->id }} </td>
                         <td class="text-center"> {{ $carrera->nombre }} </td>
                         <td class="text-center"> {{ $carrera->descripcion }} </td>
