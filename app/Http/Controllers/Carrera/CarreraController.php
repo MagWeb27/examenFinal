@@ -43,7 +43,7 @@ class CarreraController extends Controller
 
         Carrera::create($request->all());
 
-        return redirect()->route('carreras.index')->with('success','Carrera registrada correctamente');
+        return redirect()->route('carreras.index')->with('success', 'Carrera registrada correctamente');
     }
 
     /**
@@ -57,24 +57,33 @@ class CarreraController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Carrera $carrera)
     {
-        //
+        return view('carreras.edit', compact('carrera'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Carrera $carrera)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+        ]);
+
+        $carrera->update($request->all());
+
+        return redirect()->route('carreras.index')->with('success', 'Carrera actualizada correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Carrera $carrera)
     {
-        //
+        $carrera->delete();
+
+        return redirect()->route('carreras.index')->with('success', 'Carrera eliminada correctamente');
     }
 }
