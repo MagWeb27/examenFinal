@@ -14,7 +14,7 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::all();
+        $estudiantes = Estudiante::paginate(10);
 
         $data = compact('estudiantes');
 
@@ -43,6 +43,7 @@ class EstudianteController extends Controller
             'email' => 'required',
             'telefono' => 'required',
             'direccion' => 'required',
+            'carrera' => 'required',
         ]);
 
         Estudiante::create($request->all());

@@ -16,10 +16,11 @@
 {{ Aire::open()->route('estudiantes.store') }}
     {{ Aire::input('nombre', 'Nombre') }}
     {{ Aire::input('apellido', 'Apellido') }}
+    {{ Aire::input('cedula', 'Cédula') }}
     {{ Aire::input('email', 'Email') }}
     {{ Aire::input('telefono', 'Teléfono') }}
     {{ Aire::input('direccion', 'Dirección') }}
-    {{ Aire::select('carrera_id', 'Carrera', $carreras) }}
+    {{ Aire::select($carreras)->id('carrera')->name('carrera')->label('Carrera') }}
     {{ Aire::submit('Crear') }}
 {{ Aire::close() }}
 @endsection

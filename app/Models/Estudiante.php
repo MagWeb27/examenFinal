@@ -14,9 +14,10 @@ class Estudiante extends Model
     protected $fillable = [
         'nombre',
         'apellido',
+        'cedula',
         'email',
         'telefono',
-        'carrera',
+        'carrera_id',
     ];
 
     public function carreras() {
