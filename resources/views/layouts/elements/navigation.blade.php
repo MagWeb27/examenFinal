@@ -41,7 +41,7 @@
                             @include('layouts.navigation')
                         </div>
 
-                        <a href="{{ route('estudiantes.index') }}"
+                        <a href="{{ route('public.index') }}"
                             class="block md:hidden py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}"

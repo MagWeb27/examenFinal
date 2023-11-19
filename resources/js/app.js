@@ -1,6 +1,6 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
-import Vue from 'vue';
+import Vue from 'vue/dist/vue.esm.js';
 import CarrerasComponent from './components/CarrerasComponent.vue';
 
 window.Alpine = Alpine;
