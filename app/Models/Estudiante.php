@@ -17,6 +17,7 @@ class Estudiante extends Model
         'cedula',
         'email',
         'telefono',
+        'direccion',
         'carrera_id',
     ];
 

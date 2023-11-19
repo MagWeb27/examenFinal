@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="pt-6 flex justify-center">
+    <div class="w-[100%] pt-6 flex justify-center max-w-screen overflow-x-auto">
 
         <table class="w-[90%]">
             <thead class="bg-gray-300 rounded">
@@ -24,26 +24,30 @@
                     <th>Email</th>
                     <th>Teléfono</th>
                     <th>Dirección</th>
+                    <th>Carrera</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             @foreach ($estudiantes as $estudiante)
                 <tbody>
                     <tr>
-                        <td>
+                        <td class="text-start">
                             {{ $estudiante->nombre }}
                         </td>
-                        <td>
+                        <td class="text-center">
                             {{ $estudiante->apellido }}
                         </td>
-                        <td>
+                        <td class="text-center">
                             {{ $estudiante->email }}
                         </td>
-                        <td>
+                        <td class="text-center">
                             {{ $estudiante->telefono }}
                         </td>
-                        <td>
+                        <td class="text-center">
                             {{ $estudiante->direccion }}
+                        </td>
+                        <td class="text-center">
+                            {{ $estudiante->carrera }}
                         </td>
                         <td>
                             <div class="flex justify-center">
