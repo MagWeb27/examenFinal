@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Estudiantes;
 
-use App\Http\Controllers\Controller;
+use App\Models\Carrera;
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EstudianteController extends Controller
 {
@@ -12,7 +14,11 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        return view('estudiantes.index');
+        $estudiantes = Estudiante::all();
+
+        $data = compact('estudiantes');
+
+        return view('estudiantes.index', $data);
     }
 
     /**
@@ -20,7 +26,9 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        $carreras = Carrera::all()->pluck('nombre', 'id')->toArray();
+
+        return view('estudiantes.create', compact('carreras'));
     }
 
     /**
@@ -28,7 +36,18 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'cedula' => 'required',
+            'email' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required',
+        ]);
+
+        Estudiante::create($request->all());
+
+        return redirect()->route('estudiantes.index')->with('success','Estudiante registrado correctamente');
     }
 
     /**
@@ -44,7 +63,7 @@ class EstudianteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('estudiantes.edit');
     }
 
     /**
