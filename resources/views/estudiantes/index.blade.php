@@ -14,41 +14,31 @@
         </div>
     </div>
 
-    <div class="w-[100%] pt-6 flex justify-center max-w-screen overflow-x-auto">
+    <div class="pt-6 flex justify-center">
 
-        <table class="w-[90%]">
+        <table class="w-[90%] table-auto">
+
             <thead class="bg-gray-300 rounded">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
-                    <th>Carrera</th>
-                    <th>Acciones</th>
+                    <th class="py-2 px-4 border-b">Codigo Estudiante</th>
+                    <th class="py-2 px-4 border-b">Nombre</th>
+                    <th class="py-2 px-4 border-b">Apellido</th>
+                    <th class="py-2 px-4 border-b">Email</th>
+                    <th class="py-2 px-4 border-b">Teléfono</th>
+                    <th class="py-2 px-4 border-b">Dirección</th>
+                    <th class="py-2 px-4 border-b">Acciones</th>
                 </tr>
             </thead>
-            @foreach ($estudiantes as $estudiante)
-                <tbody>
+
+            <tbody>
+                @foreach ($estudiantes as $estudiante)
                     <tr>
-                        <td class="text-start">
-                            {{ $estudiante->nombre }}
-                        </td>
-                        <td class="text-center">
-                            {{ $estudiante->apellido }}
-                        </td>
-                        <td class="text-center">
-                            {{ $estudiante->email }}
-                        </td>
-                        <td class="text-center">
-                            {{ $estudiante->telefono }}
-                        </td>
-                        <td class="text-center">
-                            {{ $estudiante->direccion }}
-                        </td>
-                        <td class="text-center">
-                            {{ $estudiante->carrera }}
-                        </td>
+                        <td class="text-center">{{ $estudiante->id }}</td>
+                        <td class="text-start">{{ $estudiante->nombre }}</td>
+                        <td class="text-center">{{ $estudiante->apellido }}</td>
+                        <td class="text-center">{{ $estudiante->email }}</td>
+                        <td class="text-center">{{ $estudiante->telefono }}</td>
+                        <td class="text-center">{{ $estudiante->direccion }}</td>
                         <td>
                             <div class="flex justify-center">
                                 <a href="{{ route('estudiantes.edit', $estudiante->id) }}"
@@ -66,8 +56,8 @@
                             </div>
                         </td>
                     </tr>
-                </tbody>
+                @endforeach
+            </tbody>
         </table>
-        @endforeach
     </div>
 @endsection

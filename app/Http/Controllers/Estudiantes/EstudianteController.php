@@ -14,7 +14,7 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::paginate(10);
+        $estudiantes = Estudiante::all();
 
         $data = compact('estudiantes');
 
@@ -62,24 +62,40 @@ class EstudianteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Estudiante $estudiante)
     {
-        return view('estudiantes.edit');
+        $data = compact('estudiante');
+
+        return view('estudiantes.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Estudiante $estudiante)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'cedula' => 'required',
+            'email' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required',
+            'carrera' => 'required',
+        ]);
+
+        $estudiante->update($request->all());
+
+        return redirect()->route('estudiantes.index')->with('success','Estudiante actualizado correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Estudiante $estudiante)
     {
-        //
+        $estudiante->delete();
+
+        return redirect()->route('estudiantes.index')->with('success','Estudiante eliminado correctamente');
     }
 }
