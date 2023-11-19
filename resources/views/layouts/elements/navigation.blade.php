@@ -32,6 +32,10 @@
                         class="{{ request()->routeIs('carreras.index') ? 'nav-select' : 'nav-unselect' }} ">Carreras</a>
                 </li>
                 <li>
+                    <a href="{{ route('carrera.index', ['id'=>1]) }}"
+                        class="{{ request()->routeIs('carrera.index') ? 'nav-select' : 'nav-unselect' }} ">Carreras VUE</a>
+                </li>
+                <li>
                     @auth
                         <div class="hidden md:block">
                             @include('layouts.navigation')

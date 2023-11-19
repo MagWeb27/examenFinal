@@ -1,9 +1,7 @@
 @extends('layouts.public.app')
-
 @section('titulo')
     Registro de carreras
 @endsection
-
 @section('contenido')
     <div class="py-2 flex justify-center">
         <div class="flex justify-start w-[90%] pl-10">
@@ -32,6 +30,7 @@
             </thead>
             <tbody>
                 @foreach ($carreras as $carrera)
+                    <tr>
                     <tr class="bg-white">
                         <td class="text-center"> {{ $carrera->id }} </td>
                         <td class="text-center"> {{ $carrera->nombre }} </td>
@@ -64,7 +63,6 @@
                         </td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
     </div>
