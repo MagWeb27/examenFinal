@@ -62,7 +62,9 @@ class EstudianteController extends Controller
      */
     public function edit(Estudiante $estudiante)
     {
-        $data = compact('estudiante');
+        $carreras = Carrera::all()->pluck('nombre', 'id');
+
+        $data = compact('estudiante', 'carreras');
 
         return view('estudiantes.edit', $data);
     }
@@ -79,7 +81,7 @@ class EstudianteController extends Controller
             'email' => 'required',
             'telefono' => 'required',
             'direccion' => 'required',
-            'carrera' => 'required',
+            'carrera_id' => 'required',
         ]);
 
         $estudiante->update($request->all());
