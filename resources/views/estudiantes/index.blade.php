@@ -26,6 +26,7 @@
                     <th class="py-2 px-4 border-b">Email</th>
                     <th class="py-2 px-4 border-b">Teléfono</th>
                     <th class="py-2 px-4 border-b">Dirección</th>
+                    <th class="py-2 px-4 border-b">Carrera</th>
                     <th class="py-2 px-4 border-b">Acciones</th>
                 </tr>
             </thead>
@@ -39,6 +40,7 @@
                         <td class="text-center">{{ $estudiante->email }}</td>
                         <td class="text-center">{{ $estudiante->telefono }}</td>
                         <td class="text-center">{{ $estudiante->direccion }}</td>
+                        <td class="text-center">{{ $estudiante->carrera ? $estudiante->carrera->nombre : 'N/A' }}</td>
                         <td>
                             <div class="flex justify-center">
                                 <a href="{{ route('estudiantes.edit', $estudiante->id) }}"

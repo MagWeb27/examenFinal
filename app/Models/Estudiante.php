@@ -22,7 +22,7 @@ class Estudiante extends Model
         'carrera_id',
     ];
 
-    public function carreras() {
-        return $this->belongsToMany(Carrera::class);
+    public function carrera() {
+        return $this->belongsTo(Carrera::class);
     }
 }

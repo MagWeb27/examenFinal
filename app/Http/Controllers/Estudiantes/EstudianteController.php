@@ -14,11 +14,9 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::all();
+        $estudiantes = Estudiante::with('carrera')->paginate(10);
 
-        $data = compact('estudiantes');
-
-        return view('estudiantes.index', $data);
+        return view('estudiantes.index', compact('estudiantes'));
     }
 
     /**
@@ -43,7 +41,7 @@ class EstudianteController extends Controller
             'email' => 'required',
             'telefono' => 'required',
             'direccion' => 'required',
-            'carrera' => 'required',
+            'carrera_id' => 'required',
         ]);
 
         Estudiante::create($request->all());

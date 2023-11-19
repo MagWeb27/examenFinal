@@ -20,7 +20,7 @@
     {{ Aire::input('email', 'Email') }}
     {{ Aire::input('telefono', 'Teléfono') }}
     {{ Aire::input('direccion', 'Dirección') }}
-    {{ Aire::select($carreras)->id('carrera')->name('carrera')->label('Carrera') }}
+    {{ Aire::select($carreras)->id('carrera')->name('carrera_id')->label('Carrera') }}
     {{ Aire::submit('Crear') }}
 {{ Aire::close() }}
 @endsection
